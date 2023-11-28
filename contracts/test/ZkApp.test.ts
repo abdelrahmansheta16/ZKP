@@ -18,4 +18,6 @@ describe("Test ZKP contract", function () {
   let deployer: SignerWithAddress;
   let client: ZKPClient;
   let eddsa: EdDSA;
+  this.beforeEach(async () => {
+  });
 });

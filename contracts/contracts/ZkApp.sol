@@ -25,4 +25,14 @@ contract ZkApp {
         verifier = verifier_;
     }
 
+    /**
+     * @dev This is the sample function
+     */
+    function record(uint256[3] memory publicSignals, Proof memory proof)
+        public
+    {
+        require(verify(publicSignals, proof), "SNARK verification failed");
+        records.push(publicSignals);
+    }
+
 }

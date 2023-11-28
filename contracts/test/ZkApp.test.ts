@@ -32,4 +32,8 @@ describe("Test ZKP contract", function () {
       fs.readFileSync(path.join(__dirname, "../../circuits/zk/zkeys/main.zkey"))
     );
   });
+  it("Should able to create a zkp and verify them", async function () {
+    const msg = BigNumber.from("0xabcd");
+    const signature = await eddsa.sign(msg);
+  });
 });

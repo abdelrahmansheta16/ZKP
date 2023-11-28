@@ -10,3 +10,12 @@ interface IVerifier {
         uint256[3] memory input
     ) external view returns (bool r);
 }
+
+contract ZkApp {
+    struct Proof {
+        uint256[2] a;
+        uint256[2][2] b;
+        uint256[2] c;
+    }
+
+}

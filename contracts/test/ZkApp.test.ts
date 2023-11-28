@@ -35,5 +35,13 @@ describe("Test ZKP contract", function () {
   it("Should able to create a zkp and verify them", async function () {
     const msg = BigNumber.from("0xabcd");
     const signature = await eddsa.sign(msg);
+    const proof = await client.prove({
+      M: msg.toBigInt(),
+      Ax: eddsa.scalarPubKey[0],
+      Ay: eddsa.scalarPubKey[1],
+      S: signature.S,
+      R8x: eddsa.babyjub.F.toObject(signature.R8[0]),
+      R8y: eddsa.babyjub.F.toObject(signature.R8[1]),
+    });
   });
 });

@@ -51,4 +51,8 @@ contract ZkApp {
         );
         return result;
     }
+
+    function totalRecords() public view returns (uint256) {
+        return records.length;
+    }
 }

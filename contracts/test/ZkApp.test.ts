@@ -25,5 +25,11 @@ describe("Test ZKP contract", function () {
       "0xABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD"
     ).init();
     zkApp = await new ZkApp__factory(deployer).deploy(verifier.address);
+    client = await new ZKPClient().init(
+      fs.readFileSync(
+        path.join(__dirname, "../../circuits/zk/circuits/main_js/main.wasm")
+      ),
+      fs.readFileSync(path.join(__dirname, "../../circuits/zk/zkeys/main.zkey"))
+    );
   });
 });

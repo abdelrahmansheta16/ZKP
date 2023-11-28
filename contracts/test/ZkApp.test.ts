@@ -43,5 +43,11 @@ describe("Test ZKP contract", function () {
       R8x: eddsa.babyjub.F.toObject(signature.R8[0]),
       R8y: eddsa.babyjub.F.toObject(signature.R8[1]),
     });
+    expect(
+      await zkApp.verify(
+        [msg, eddsa.scalarPubKey[0], eddsa.scalarPubKey[1]],
+        proof
+      )
+    ).to.eq(true);
   });
 });

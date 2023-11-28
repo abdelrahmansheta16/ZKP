@@ -35,4 +35,20 @@ contract ZkApp {
         records.push(publicSignals);
     }
 
+    /**
+     * Please adjust the IVerifier.sol and the array length of publicSignals
+     */
+    function verify(uint256[3] memory publicSignals, Proof memory proof)
+        public
+        view
+        returns (bool)
+    {
+        bool result = IVerifier(verifier).verifyProof(
+            proof.a,
+            proof.b,
+            proof.c,
+            publicSignals
+        );
+        return result;
+    }
 }

@@ -19,5 +19,11 @@ describe("Test ZKP contract", function () {
   let client: ZKPClient;
   let eddsa: EdDSA;
   this.beforeEach(async () => {
+    [deployer] = await ethers.getSigners();
+    verifier = await new Verifier__factory(deployer).deploy();
+    eddsa = await new EdDSA(
+      "0xABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD"
+    ).init();
+    zkApp = await new ZkApp__factory(deployer).deploy(verifier.address);
   });
 });

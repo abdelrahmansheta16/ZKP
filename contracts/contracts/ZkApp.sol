@@ -18,4 +18,11 @@ contract ZkApp {
         uint256[2] c;
     }
 
+    address public immutable verifier;
+    uint256[3][] public records; // just a sample var
+
+    constructor(address verifier_) {
+        verifier = verifier_;
+    }
+
 }
